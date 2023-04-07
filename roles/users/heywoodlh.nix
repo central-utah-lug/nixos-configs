@@ -39,9 +39,6 @@ in {
       cd ${cloneDir} \
       && ${pkgs.peru}/bin/peru sync \
       && ${pkgs.powershell}/bin/pwsh -executionpolicy bypass -file ./setup.ps1
-
-      # If nixos-switch not defined in `~/.config/powershell/custom.ps1`, add it to the config
-      grep -q nixos-switch ~/.config/powershell/custom.ps1 || printf "\nfunction nixos-switch\n    if (-not (test-path ~/opt/conf))\n    {\n        git clone https://github.com/heywoodlh/conf.git ~/opt/conf\n    }\n    git -C ~/opt/conf pull origin master\n    if (-not (test-path ~/opt/nixos-configs))\n    {\n    git clone https://github.com/central-utah-lug/nixos-configs.git ~/opt/nixos-configs\n    }\n    git -C ~/opt/nixos-configs pull origin master\n    sudo nixos-rebuild switch --flake ~/opt/nixos-configs#$(hostname) --impure" | tee -a ~/.config/powershell/custom.ps1
     '"
   '';
 }
