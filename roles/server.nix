@@ -24,6 +24,7 @@
 
   environment.systemPackages = with pkgs; [
     git
+    htop
     mosh
     vim
   ];
