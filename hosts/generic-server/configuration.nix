@@ -9,6 +9,11 @@ in {
     ../../roles/docker.nix
   ];
 
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+
   networking.hostName = "${hostname}"; # Define your hostname
 
   # Set your time zone.
