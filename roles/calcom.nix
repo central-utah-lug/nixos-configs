@@ -3,10 +3,9 @@
 let
   interface = "shadow";
   calcom = {
-    port = "8086";
-    image_tag = "latest";
-    domain = "calcom.heywoodlh.io";
-    postgres_image_tag = "6.2.5-alpine";
+    port = "80";
+    image_tag = "v2.7.8";
+    postgres_image_tag = "15.2";
   };
 in {
   system.activationScripts.mkcalcomNet = ''
