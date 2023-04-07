@@ -6,7 +6,10 @@ on:
     - 'master'
     paths:
     - flake.nix
+    - hosts/generic-server/**
+    - roles/**
     - .github/workflows/ci.yml
+    - '!**.md'
   schedule:
   - cron: '0 0 * * Thu' # To update flake.lock
   workflow_dispatch:
