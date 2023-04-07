@@ -23,6 +23,8 @@
   };
 
   environment.systemPackages = with pkgs; [
+    git
     mosh
+    vim
   ];
 }

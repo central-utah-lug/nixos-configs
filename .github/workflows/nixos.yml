@@ -1,14 +1,13 @@
-name: build-envs
+name: build-nixos-envs
 
 on:
   push:
     branches:
     - 'master'
     paths:
-    - flake.nix
-    - .github/workflows/ci.yml
-  schedule:
-  - cron: '0 0 * * Thu' # To update flake.lock
+    - .github/workflows/nixos.yml
+    - roles/**
+    - '!**.md'
   workflow_dispatch:
 
 jobs:
@@ -30,21 +29,9 @@ jobs:
     - name: Install Nix
       uses: cachix/install-nix-action@v18
     
-    - name: If scheduled or manually triggered, update inputs again
-      if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
-      run: |
-        nix flake update
-  
     - name: Build nixos-server output 
       run: |
         # Build nixos-server output
         nix build .#nixosConfigurations.nixos-server.config.system.build.toplevel
         rm -rf ./result
-   
-    - name: If scheduled or manually triggered, add updated flake.lock if changed, commit and push
-      if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
-      uses: EndBug/add-and-commit@v9
-      with:
-        add: 'flake.lock'
-        author_name: 'github-actions'
-        author_email: 'github-actions@github.com' 
+
