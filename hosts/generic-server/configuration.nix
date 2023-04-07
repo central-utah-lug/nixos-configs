@@ -4,6 +4,7 @@ let
   hostname = "generic-server";
 in {
   imports = [
+    ./hardware-configuration.nix
     ../../roles/server.nix
     ../../roles/docker.nix
   ];

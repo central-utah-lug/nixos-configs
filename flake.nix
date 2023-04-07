@@ -12,6 +12,11 @@
         specialArgs = inputs;
         modules = [ ./hosts/nix-pomerium/configuration.nix ];
       };
+      culug-cal = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = inputs;
+        modules = [ ./hosts/nix-cal/configuration.nix ];
+      };
       # Used for CI/GitHub Actions
       nixos-server = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
