@@ -6,7 +6,6 @@ in {
   imports = [
     ../../roles/server.nix
     ../../roles/docker.nix
-    ../../roles/users/heywoodlh.nix
   ];
 
   networking.hostName = "${hostname}"; # Define your hostname

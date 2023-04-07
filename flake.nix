@@ -12,7 +12,8 @@
         specialArgs = inputs;
         modules = [ ./hosts/nix-pomerium/configuration.nix ];
       };
-      nixos-server-intel = nixpkgs.lib.nixosSystem {
+      # Used for CI/GitHub Actions
+      nixos-server = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = inputs;
         modules = [ ./hosts/generic-server/configuration.nix ];
