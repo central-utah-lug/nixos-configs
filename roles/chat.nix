@@ -1,11 +1,18 @@
 { config, pkgs, ... }:
 
 let
+  ssh_alternate_port = 2222;
   sshchat = {
-    port = "2222";
+    port = "22";
     image_tag = "1fc7f7b";
   };
 in {
+
+  services.openssh = {
+    ports = [ ${ssh_alternate_port} ];
+    openFirewall = true;
+  };
+
   system.activationScripts.mksshchatNet = ''
     ${pkgs.docker}/bin/docker network create sshchat  &2>/dev/null || true
   '';
