@@ -17,6 +17,11 @@
         specialArgs = inputs;
         modules = [ ./hosts/nix-cal/configuration.nix ];
       };
+      culug-chat = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = inputs;
+        modules = [ ./hosts/nix-chat/configuration.nix ];
+      };
       # Used for CI/GitHub Actions
       nixos-server = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
