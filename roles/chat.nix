@@ -9,7 +9,7 @@ let
 in {
 
   services.openssh = {
-    ports = [ ${ssh_alternate_port} ];
+    ports = [ ssh_alternate_port ];
     openFirewall = true;
   };
 
