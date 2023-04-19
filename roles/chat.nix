@@ -34,9 +34,15 @@ in {
     };
   };
 
-  #services.matterbridge = {
-  #  enable = true;
-  #  user = "chat";
-  #  configPath = "/opt/matterbridge/matterbridge.toml";
-  #};
+  users.users.chat = {
+    group = "chat";
+    isSystemUser = true;
+    uid = 2000;
+  };
+
+  services.matterbridge = {
+    enable = true;
+    user = "chat";
+    configPath = "/opt/matterbridge/matterbridge.toml";
+  };
 }
