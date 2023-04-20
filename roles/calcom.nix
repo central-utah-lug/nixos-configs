@@ -4,7 +4,7 @@ let
   interface = "shadow";
   calcom = {
     port = "80";
-    image_tag = "v2.7.6";
+    image_tag = "v2.8.1";
     postgres_image_tag = "15.2";
   };
 in {
