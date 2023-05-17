@@ -16,7 +16,7 @@ in {
     backend = "docker";
     containers = {
       discordrss = {
-        image = "ghcr.io/3ventic/discord-rss:${discordrss.image_tag}";
+        image = "ghcr.io/3ventic/discord-rss/discord-rss:${discordrss.image_tag}";
         autoStart = true;
         ports = ["${discordrss.port}:${discordrss.port}"];
         environment = {
