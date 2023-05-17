@@ -8,6 +8,7 @@ in {
     ../../roles/server.nix
     ../../roles/docker.nix
     ../../roles/chat.nix
+    ../../roles/discord-rss.nix
   ];
 
   networking.hostName = "${hostname}"; # Define your hostname
