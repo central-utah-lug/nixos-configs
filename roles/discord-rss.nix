@@ -2,7 +2,6 @@
 
 let
   discordrss = {
-    port = 3000;
     image_tag = "v0.10.0";
     redis_image_tag = "7.0.11";
   };
@@ -13,7 +12,7 @@ in {
 
   networking.firewall = {
     allowedTCPPorts = [
-      discordrss.port
+      3000
     ];
   };
 
@@ -24,9 +23,9 @@ in {
       discordrss = {
         image = "ghcr.io/3ventic/discord-rss/discord-rss:${discordrss.image_tag}";
         autoStart = true;
-        ports = ["${discordrss.port}:${discordrss.port}"];
+        ports = ["3000:3000"];
         environment = {
-          PORT = "${discordrss.port}";
+          PORT = "3000";
           REDIS_URL = "redis://discordrss-redis:6379";
         };
         environmentFiles = [
