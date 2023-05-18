@@ -33,6 +33,7 @@ in {
         ];
         volumes = [
           "/opt/discordrss/data:/tmp/appdata"
+          "/etc/localtime:/etc/localtime"
         ];
         dependsOn = [ "discordrss-redis" ];
         extraOptions = [
