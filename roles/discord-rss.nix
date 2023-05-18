@@ -11,6 +11,12 @@ in {
     ${pkgs.docker}/bin/docker network create discordrss  &2>/dev/null || true
   '';
 
+  networking.firewall = {
+    allowedTCPPorts = [
+      "${discordrss.port}"
+    ];
+  };
+
   # Containers for cal.com
   virtualisation.oci-containers = {
     backend = "docker";
