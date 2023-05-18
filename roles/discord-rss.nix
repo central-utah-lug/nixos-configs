@@ -2,7 +2,7 @@
 
 let
   discordrss = {
-    port = "3000";
+    port = 3000;
     image_tag = "v0.10.0";
     redis_image_tag = "7.0.11";
   };
