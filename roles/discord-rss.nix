@@ -26,6 +26,9 @@ in {
         environmentFiles = [
           /opt/discordrss/discordrss.env
         ];
+        volumes = [
+          "/opt/discordrss/data:/tmp/appdata"
+        ];
         dependsOn = [ "discordrss-redis" ];
         extraOptions = [
           "--network=discordrss"
