@@ -13,7 +13,7 @@ in {
 
   networking.firewall = {
     allowedTCPPorts = [
-      "${discordrss.port}"
+      discordrss.port
     ];
   };
 
