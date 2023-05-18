@@ -22,6 +22,12 @@
     settings.PasswordAuthentication = false;
   };
 
+  nix.gc = {
+    automatic = true;
+    dates = "daily";
+    options = "--delete-older-than 1d";
+  }; 
+
   environment.systemPackages = with pkgs; [
     git
     htop
