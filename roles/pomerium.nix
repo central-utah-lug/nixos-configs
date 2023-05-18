@@ -8,6 +8,7 @@
 
   nixpkgs.config.permittedInsecurePackages = [
     "envoy-1.25.1"
+    "envoy-1.25.1-deps.tar.gz"
   ];
 
   services.pomerium = {
