@@ -10,5 +10,6 @@
     enable = true;
     siteName = "Central Utah Linux User Group";
     siteUrl = "https://chat.culug.group";
+    listenAddress = "0.0.0.0:8065";
   };
 }
