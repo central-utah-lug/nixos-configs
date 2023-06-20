@@ -31,5 +31,10 @@ in {
     flake = "github:central-utah-lug/nixos-configs#${hostname}";
   };
 
+  # Packages specific to this machine
+  environment.systemPackages = with pkgs; [
+    inetutils
+  ];
+
   system.stateVersion = "22.11";
 }
